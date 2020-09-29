@@ -4,11 +4,11 @@
 
 #### **ECS**
 
-47.91.16.103  linux121  NN,DN,Impala-server,Metastore
+xxx.103  linux121  NN,DN,Impala-server,Metastore
 
-47.91.21.253  linux122  DN,Impala-server,Hive[beeline(./beeline),HUE(./supervisor)
+xxx.253  linux122  DN,Impala-server,Hive[beeline(./beeline),HUE(./supervisor)
 
-47.74.5.215    linux123  2NN,DN,ResourceManager,Mysql,Hive,Impala,HiveServer2,Metastore 
+xxx.215    linux123  2NN,DN,ResourceManager,Mysql,Hive,Impala,HiveServer2,Metastore 
 
 
 #### SSH
@@ -141,4 +141,4 @@ systemctl start httpd
 
 symbolic link:ln -s /cdh/5.7.6 /var/www/html/cdh57
 
-http://47.91.16.103:80/cdh57
+http://linux121:80/cdh57
