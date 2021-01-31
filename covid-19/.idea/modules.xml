@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/covid-19.iml" filepath="$PROJECT_DIR$/covid-19.iml" />
+      <module fileurl="file://$PROJECT_DIR$/datasource/datasource.iml" filepath="$PROJECT_DIR$/datasource/datasource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/processing/processing.iml" filepath="$PROJECT_DIR$/processing/processing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/visual/visual.iml" filepath="$PROJECT_DIR$/visual/visual.iml" />
+    </modules>
+  </component>
+</project>

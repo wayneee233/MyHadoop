@@ -1,0 +1,32 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+  tomcat:
+    uri-encoding: UTF-8
+
+spring:
+  kafka:
+    bootstrap-servers: 47.74.5.215:9092
+
+    producer:
+      retries: 0
+      batch-size: 16384
+      buffer-memory: 524288
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      properties:
+        linger.ms: 1
+      myTopic1: covid19
+      myTopic2: testTopic
+
+    consumer:
+      group-id: default-group
+      enable-auto-commit: false #关闭自动提交 改由spring-kafka提交
+      auto-commit-interval: 100ms
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        session.timeout.ms: 15000
+      max-poll-records: 20 #批量消费 一次接收的最大数量
+      auto-offset-reset: latest
