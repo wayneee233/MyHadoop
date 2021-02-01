@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>covid data</title>
+    <script src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+<div></div>
+<div id="drawChart" ></div>
+</body>
+<script type="text/javascript">
+    google.load('visualization', '1', {packages:['geochart'],'mapsApiKey':'AIzaSyDwgB4mC7_-ecn5Ah9qRVcmsAOLCemndek'});
+    google.setOnLoadCallback(graphChart);
+
+    const option = {
+        region: 'JP',
+        resolution: 'regions',
+        displayMode:'markers',
+        backgroundColor: '#ebf7fe', //背景色
+        colors:['white','red'],//階層の色
+    }
+
+    const arr = []
+    const map = new Map()
+    map.set('都道府県', '感染者数')
+    function graphChart() {
+        $.ajax({
+            url: "http://localhost:80/covid/data",
+            method: 'GET',
+            sync: true,
+            dataType: 'json',
+            success: function (data) {
+                const values = data.data
+
+                values.forEach(element => {
+                    map.set(String(element.name_jp).replace("\"","'"), element.npatients);
+                });
+
+/*                const data1 = google.visualization.arrayToDataTable([...map]);*/
+                let data2 = [...map]
+                const data1 = google.visualization.arrayToDataTable(data2)
+                console.log([...map])
+                const graph = new google.visualization.GeoChart(document.getElementById('drawChart'));
+                graph.draw(data1, option);
+            }
+        })
+    }
+</script>
+</html>

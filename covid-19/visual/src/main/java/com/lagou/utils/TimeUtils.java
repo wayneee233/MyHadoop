@@ -15,7 +15,7 @@ public class TimeUtils {
     public static String getDate() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
-        calendar.add(Calendar.DATE, -3);
+        calendar.add(Calendar.DATE, -4);
 
         return FastDateFormat.getInstance("yyyy-MM-dd").format(calendar.getTime());
     }

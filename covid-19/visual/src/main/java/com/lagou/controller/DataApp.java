@@ -5,11 +5,7 @@ import com.lagou.mapper.CovidMapper;
 import com.lagou.utils.TimeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
 import java.util.List;
@@ -19,23 +15,16 @@ import java.util.Map;
  * @Author jiang.weiyu
  * @Date 2021/01/31 5:44
  */
-@Controller //@Controller + @ResponseBody
+@Controller//@Controller + @ResponseBody JSON形式
 @RequestMapping("covid")
 public class DataApp {
     @Autowired
     private CovidMapper mapper;
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String index(ModelMap modelMap) {
-        modelMap.put("msg", "SpringBoot Ajax 示例");
 
+    @RequestMapping("/index")
+    public String index() {
         return "index";
-    }
-
-    @ResponseBody
-    public String home() {
-
-        return "home";
     }
 
     @RequestMapping(value = "/data",method = RequestMethod.GET)

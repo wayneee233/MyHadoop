@@ -5,3 +5,7 @@ spring:
     password: 12345678
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
+    thymeleaf:
+      prefix:
+        classpath: /templates   # 访问template下的html文件需要配置模板，映射
+      cache: false
